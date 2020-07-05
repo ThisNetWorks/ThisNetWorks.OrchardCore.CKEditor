@@ -1,2 +1,2 @@
 # ThisNetWorks.OrchardCore.CKEditor
-CKEditor display modes and plugins for Orchard Core
+CKEditor editors and media plugins for Orchard Core

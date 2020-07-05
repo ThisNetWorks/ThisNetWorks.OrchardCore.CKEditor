@@ -1,0 +1,27 @@
+{
+  "name": "ckeditor5-orchardcore-media",
+  "version": "1.0.0",
+  "description": "Insert media from the orchard core asset library in ckeditor",
+  "main": "src/orchardcore-media.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ckeditor5",
+    "orchardcore",
+    "custom",
+    "tag",
+    "plugin"
+  ],
+  "dependencies": {
+    "@ckeditor/ckeditor5-core": "^20.0.0",
+    "@ckeditor/ckeditor5-ui": "^20.0.0",
+    "@ckeditor/ckeditor5-widget": "^20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThisNetWorks/ThisNetWorks.OrchardCore.CKEditor"
+  },
+  "author": "deanmarcussen",
+  "license": "BSD-3-Clause"
+}

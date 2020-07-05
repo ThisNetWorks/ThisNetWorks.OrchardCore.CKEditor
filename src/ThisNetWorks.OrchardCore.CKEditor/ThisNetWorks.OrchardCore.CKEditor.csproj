@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageId>ThisNetWorks.OrchardCore.CKEditor</PackageId>
+    <Title>CKEditor for Orchard Core</Title>
+    <Description>CKEditor for Orchard Core</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.ContentLocalization.Abstractions"/>
+    <PackageReference Include="OrchardCore.Html"/>
+    <PackageReference Include="OrchardCore.Module.Targets"/>
+  </ItemGroup>
+
+</Project>
