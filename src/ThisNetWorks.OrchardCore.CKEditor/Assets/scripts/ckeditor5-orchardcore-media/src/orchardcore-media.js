@@ -1,6 +1,6 @@
-import Plugin from '../../node_modules/@ckeditor/ckeditor5-core/src/plugin';
-import imageIcon from '../../node_modules/@ckeditor/ckeditor5-core/theme/icons/image.svg';
-import ButtonView from '../../node_modules/@ckeditor/ckeditor5-ui/src/button/buttonview';
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
+import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 
 
 export default class InsertAsset extends Plugin {

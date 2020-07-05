@@ -19,6 +19,9 @@ module.exports = {
 	performance: { hints: false },
 
 	entry: path.resolve( __dirname, 'src', 'ckeditor.js' ),
+	resolve: {
+		modules: [path.resolve(__dirname) + "/node_modules"]
+	},	
 
 	output: {
 		// The name under which the editor will be exported.
