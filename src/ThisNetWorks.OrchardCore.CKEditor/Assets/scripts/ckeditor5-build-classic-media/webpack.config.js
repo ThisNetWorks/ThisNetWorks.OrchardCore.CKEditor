@@ -14,6 +14,7 @@ const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' 
 const TerserPlugin = require( 'terser-webpack-plugin' );
 
 module.exports = {
+	mode: 'development',
 	devtool: 'source-map',
 	performance: { hints: false },
 
@@ -54,7 +55,7 @@ module.exports = {
 		new webpack.BannerPlugin( {
 			banner: bundler.getLicenseBanner(),
 			raw: true
-		} )
+		} ),
 	],
 
 	module: {
