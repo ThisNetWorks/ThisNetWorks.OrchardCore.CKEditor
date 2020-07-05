@@ -18,16 +18,20 @@
         var optionsTextArea = document.getElementById('@Html.IdFor(x => x.Html)');
         // When part rendered by a flow part only the elements scripts are rendered, so the html element will not exist.
         if (optionsTextArea) {
-            ClassicEditor
+            const editor = ClassicEditor
                 .create(optionsTextArea)
                 .catch(error => {
                     console.error(error);
                 });
+
+            editor.then(e => {
+                e.model.document.on( 'change:data', () => {
+                    // Update the text area source element.
+                    e.updateSourceElement();
+                    // Then trigger render.
+                    $(document).trigger('contentpreview:render');
+                } );
+            });
         }
     });
-/*
-need to remember to handle content preview.#
-        $('#@Html.IdFor(m => m.Html)').trumbowyg(settings).on('tbwchange', function () {
-            $(document).trigger('contentpreview:render');
-        });     **/
 </script>
