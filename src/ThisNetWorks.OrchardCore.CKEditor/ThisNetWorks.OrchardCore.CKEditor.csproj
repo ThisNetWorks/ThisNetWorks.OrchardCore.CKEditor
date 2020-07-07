@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="OrchardCore.ContentLocalization.Abstractions"/>
+    <PackageReference Include="OrchardCore.ContentFields"/>
     <PackageReference Include="OrchardCore.Html"/>
     <PackageReference Include="OrchardCore.Module.Targets"/>
   </ItemGroup>

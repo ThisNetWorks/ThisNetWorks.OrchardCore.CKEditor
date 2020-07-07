@@ -27,7 +27,7 @@ module.exports = {
 		// The name under which the editor will be exported.
 		library: 'ClassicEditor',
 
-		path: path.resolve( __dirname, '../../../wwwroot/scripts/ckeditor-classic' ),
+		path: path.resolve( __dirname, '../../../wwwroot/scripts/ckeditor-classic-orchardcore' ),
 		filename: 'ckeditor.js',
 		libraryTarget: 'umd',
 		libraryExport: 'default'

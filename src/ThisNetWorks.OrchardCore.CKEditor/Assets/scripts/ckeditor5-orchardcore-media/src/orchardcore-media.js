@@ -3,7 +3,7 @@ import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 
 
-export default class InsertAsset extends Plugin {
+export default class InsertOrchardCoreMedia extends Plugin {
     init() {
         const editor = this.editor;
 
