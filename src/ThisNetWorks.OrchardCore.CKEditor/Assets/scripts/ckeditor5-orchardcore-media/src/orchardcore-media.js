@@ -18,15 +18,17 @@ export default class InsertOrchardCoreMedia extends Plugin {
 
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
+                // It doesn't matter which modal is bound to, so long as its only one, and is unbound later.
+                var modalSelector = '#mediaModalBody';
+                var selectButtonSelector = '#mediaBodySelectButton';
+                var modal = $('#mediaModalBody');
+                if (modal.length === 0)
+                {
+                    modalSelector = '#mediaModalHtmlField';
+                    selectButtonSelector = '#mediaHtmlFieldSelectButton';
+                }
 
-                $("#mediaApp").detach().appendTo('#mediaModalBody .modal-body');
-                $("#mediaApp").show();
-                mediaApp.selectedMedias = [];
-                var modal = $('#mediaModalBody').modal();
-                //disable an reset on click event over the button to avoid issue if press button multiple times or have multiple editor
-                $('#mediaHtmlFieldSelectButton').off('click');
-                $('#mediaBodySelectButton').on('click', function (v) {
-
+                function appendMedia (){
                     var content = '';
                     
                     for (i = 0; i < mediaApp.selectedMedias.length; i++) {
@@ -38,10 +40,17 @@ export default class InsertOrchardCoreMedia extends Plugin {
                         editor.model.insertContent(writer.createText( content ), editor.model.document.selection);
                     } );
                     
-                    $('#mediaModalBody').modal('hide');
-                    return true;
-                });
+                    $(modalSelector).modal('hide');
+                    // Unbind select button event.
+                    $(selectButtonSelector).off('click', appendMedia);
 
+                    return true;
+                }
+                $("#mediaApp").detach().appendTo(modalSelector + ' .modal-body');
+                $("#mediaApp").show();
+                mediaApp.selectedMedias = [];
+                $(modalSelector).modal();
+                $(selectButtonSelector).on('click', appendMedia);
             } );
 
             return view;

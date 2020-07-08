@@ -4,6 +4,9 @@
 *@
 
 @inherits OrchardCore.DisplayManagement.Razor.RazorPage<TModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, OrchardCore.DisplayManagement
+@addTagHelper *, OrchardCore.ResourceManagement
 @using OrchardCore.ContentFields.Fields
 @using OrchardCore.ContentFields.Settings
 @using OrchardCore.ContentFields.ViewModels
@@ -14,7 +17,8 @@
 @using OrchardCore.Html.Settings
 @using OrchardCore.Localization
 @using OrchardCore.Mvc.Utilities
+@using ThisNetWorks.OrchardCore.CKEditor
+@using ThisNetWorks.OrchardCore.CKEditor.Models
+@using ThisNetWorks.OrchardCore.CKEditor.Settings
+@using ThisNetWorks.OrchardCore.CKEditor.ViewModels
 @using System.Globalization
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper *, OrchardCore.DisplayManagement
-@addTagHelper *, OrchardCore.ResourceManagement

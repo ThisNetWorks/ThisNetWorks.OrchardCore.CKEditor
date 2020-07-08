@@ -16,6 +16,17 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Shapes
                         editor.Metadata.Wrappers.Add("Media_Wrapper__HtmlBodyPart");
                     }
                 });
+
+            builder.Describe("HtmlField_Edit")
+                .OnDisplaying(displaying =>
+                {
+                    var editor = displaying.Shape;
+
+                    if (editor.Metadata.Type == "HtmlField_Edit__CKEditorClassic")
+                    {
+                        editor.Metadata.Wrappers.Add("Media_Wrapper__HtmlField");
+                    }
+                });                
         }
     }
 }

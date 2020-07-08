@@ -1,9 +1,22 @@
 @model OrchardCore.ContentFields.ViewModels.EditHtmlFieldViewModel
+@using System
 @using OrchardCore.ContentManagement.Metadata.Models
-@using OrchardCore.ContentFields.Settings;
+@using OrchardCore.ContentFields.Settings
+@inject ThisNetWorks.OrchardCore.CKEditor.Services.CKEditorConfigurationManager Manager
 
 @{
     var settings = Model.PartFieldDefinition.GetSettings<HtmlFieldSettings>();
+    var ckeditorSettings = Model.PartFieldDefinition.GetSettings<HtmlFieldCKEditorClassicSettings>();
+    string configuration = String.Empty;
+    if (!String.IsNullOrEmpty(ckeditorSettings.ConfigurationName))
+    {
+        var document = await Manager.GetDocumentAsync();
+        if(document.Configurations.TryGetValue(ckeditorSettings.ConfigurationName, out var ckEditorConfiguration))
+        {
+            configuration = ckEditorConfiguration.Configuration;
+        }
+
+    }
     var culture = await Orchard.GetContentCultureAsync(Model.Field.ContentItem);
 }
 
@@ -31,29 +44,21 @@
 
 <script at="Foot" type="text/javascript">
     var optionsTextArea = document.getElementById('@Html.IdFor(x => x.Html)');
-    // When part rendered by a flow part only the elements scripts are rendered, so the html element will not exist.
+    // When field rendered by a flow part only the elements scripts are rendered, so the html element will not exist.
     if (optionsTextArea) {
         const editor = ClassicEditor
-            .create(optionsTextArea
-            //, {
-                // yup perfect. let's move them to a site setting, and a content definition setting.
-        //toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ]
-          //  }
-       )
+            .create(optionsTextArea, @Html.Raw(configuration))
+            .then(e => {
+                e.model.document.on( 'change:data', () => {
+                    // Update the text area source element.
+                    e.updateSourceElement();
+                    // Then trigger render.
+                    $(document).trigger('contentpreview:render');
+                } );
+            })
             .catch(error => {
                 console.error(error);
             });
-
-        // TODO check out toolbar configuration. Perhaps have a default site setting for each editor
-        // and provide override options in the content type editor?
-        editor.then(e => {
-            e.model.document.on( 'change:data', () => {
-                // Update the text area source element.
-                e.updateSourceElement();
-                // Then trigger render.
-                $(document).trigger('contentpreview:render');
-            } );
-        });
     }
 </script>
 
