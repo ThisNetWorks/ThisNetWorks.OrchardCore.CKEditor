@@ -120,7 +120,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Name), S["The name is mandatory."]);
                 }
-                if (!TryCheckJson(model.Configuration))
+                if (!IsJsonOrWhitespace(model.Configuration))
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Configuration), S["Invalid JSON configuration."]);
                 }                
@@ -138,7 +138,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                     var configuration = new CKEditorConfiguration
                     {
                         Name = model.Name,
-                        Configuration = model.Configuration
+                        Configuration = FormatJson(model.Configuration)
                     };
 
                     await _ckEditorConfigurationManager.UpdateAsync(model.Name, configuration);
@@ -190,7 +190,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Name), S["The name is mandatory."]);
                 }
-                if (!TryCheckJson(model.Configuration))
+                if (!IsJsonOrWhitespace(model.Configuration))
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Configuration), S["Invalid JSON configuration."]);
                 }                  
@@ -201,7 +201,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                 var configuration = new CKEditorConfiguration
                 {
                     Name = model.Name,
-                    Configuration = model.Configuration
+                    Configuration = FormatJson(model.Configuration)
                 };
 
                 await _ckEditorConfigurationManager.UpdateAsync(model.Name, configuration);
@@ -233,9 +233,9 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TryCheckJson(string json)
+        private bool IsJsonOrWhitespace(string json)
         { 
-            if (String.IsNullOrEmpty(json))
+            if (String.IsNullOrWhiteSpace(json))
             {
                 return true;
             }
@@ -249,6 +249,12 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
             {
                 return false;
             }
+        }
+
+        private string FormatJson(string json)
+        {
+            var jObject = JObject.Parse(json);
+            return jObject.ToString(Newtonsoft.Json.Formatting.Indented);
         }
     }
 }

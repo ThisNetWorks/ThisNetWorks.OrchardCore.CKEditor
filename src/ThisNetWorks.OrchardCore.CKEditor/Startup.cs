@@ -10,6 +10,7 @@ using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using ThisNetWorks.OrchardCore.CKEditor.Controllers;
+using ThisNetWorks.OrchardCore.CKEditor.Models;
 using ThisNetWorks.OrchardCore.CKEditor.Services;
 using ThisNetWorks.OrchardCore.CKEditor.Settings;
 
@@ -31,7 +32,34 @@ namespace ThisNetWorks.OrchardCore.CKEditor
                 .AddScoped<IPermissionProvider, Permissions>()
                 .AddScoped<INavigationProvider, AdminMenu>()
                 .AddScoped<IContentPartFieldDefinitionDisplayDriver, HtmlFieldCKEditorClassicSettingsDriver>()
-                .AddScoped<IContentTypePartDefinitionDisplayDriver, HtmlBodyPartCKEditorClassicSettingsDriver>();
+                .AddScoped<IContentTypePartDefinitionDisplayDriver, HtmlBodyPartCKEditorClassicSettingsDriver>()
+                .Configure<CKEditorOptions>(o =>
+                {
+                    o.DefaultConfiguration = 
+                    @"
+                    { 
+                        toolbar : 
+                            [
+                                'heading',
+                                '|',
+                                'bold',
+                                'italic',
+                                'link',
+                                'bulletedList',
+                                'numberedList',
+                                '|',
+                                'indent',
+                                'outdent',
+                                '|',
+                                'insertImage',
+                                'blockQuote',
+                                'insertTable',
+                                'undo',
+                                'redo'
+                            ]
+                    }";
+
+                });
 
         }
 
