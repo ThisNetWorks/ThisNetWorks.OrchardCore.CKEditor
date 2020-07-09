@@ -33,10 +33,14 @@
     </div>
 
     <fieldset>
-        <div class="form-group">
-            <button id="use-default-configuration" class="btn btn-success">@T["Use Default"]</button>
-            <button class="btn btn-primary" type="submit">@T["Create"]</button>
-            <a class="btn btn-secondary" asp-route-action="Index">@T["Cancel"]</a>
+        <div class="form-group d-flex justify-content-between">
+            <div>
+                <button id="use-default-configuration" class="btn btn-success">@T["Set to default"]</button>
+                <button class="btn btn-primary" type="submit">@T["Create"]</button>
+            </div>
+            <div>
+                <a class="btn btn-secondary" asp-route-action="Index">@T["Cancel"]</a>
+            </div>
         </div>
     </fieldset>
 

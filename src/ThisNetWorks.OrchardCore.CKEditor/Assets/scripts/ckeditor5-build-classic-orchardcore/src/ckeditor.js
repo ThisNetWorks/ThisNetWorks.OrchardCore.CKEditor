@@ -26,7 +26,6 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 // The Orchard Core media / asset plugin to include.
 import InsertAsset from '../../ckeditor5-orchardcore-media/src/orchardcore-media';
 
-
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.

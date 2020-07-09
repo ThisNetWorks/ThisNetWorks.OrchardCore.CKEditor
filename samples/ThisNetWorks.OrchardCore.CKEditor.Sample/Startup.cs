@@ -15,6 +15,9 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Sample
                 /// This is an example of how to override the <script asp-name="ckeditorclassic"> tag helper
                 /// Register a IResourceManifestProvider with the urls to your custom build of CKEditor and it will replace the default custom build registration in the editor view.             
                 // .ConfigureServices(tenantServices => tenantServices.AddScoped<IResourceManifestProvider, ClassicEditorResourceManifest>())
+
+                // This registers a custom style sheet for the admin with some specific styles for using in the CKEditor with a custom paragraph / heading toolbar.
+                .ConfigureServices(tenantServices => tenantServices.AddScoped<IResourceManifestProvider, CKEditorTheAdminResourceManifest>())
                 ;
         }
         

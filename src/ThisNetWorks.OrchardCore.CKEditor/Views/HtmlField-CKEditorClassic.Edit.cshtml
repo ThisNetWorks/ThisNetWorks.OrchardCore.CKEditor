@@ -46,15 +46,15 @@
     var optionsTextArea = document.getElementById('@Html.IdFor(x => x.Html)');
     // When field rendered by a flow part only the elements scripts are rendered, so the html element will not exist.
     if (optionsTextArea) {
-        const editor = ClassicEditor
+        ClassicEditor
             .create(optionsTextArea, @Html.Raw(configuration))
-            .then(e => {
-                e.model.document.on( 'change:data', () => {
+            .then(editor => {
+                editor.model.document.on( 'change:data', () => {
                     // Update the text area source element.
-                    e.updateSourceElement();
+                    editor.updateSourceElement();
                     // Then trigger render.
                     $(document).trigger('contentpreview:render');
-                } );
+                } );            
             })
             .catch(error => {
                 console.error(error);

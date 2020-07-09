@@ -5,12 +5,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.ContentTypes.Editors;
+using OrchardCore.Deployment;
+using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
+using OrchardCore.Recipes;
 using OrchardCore.Security.Permissions;
 using ThisNetWorks.OrchardCore.CKEditor.Controllers;
+using ThisNetWorks.OrchardCore.CKEditor.Deployment;
 using ThisNetWorks.OrchardCore.CKEditor.Models;
+using ThisNetWorks.OrchardCore.CKEditor.Recipes;
 using ThisNetWorks.OrchardCore.CKEditor.Services;
 using ThisNetWorks.OrchardCore.CKEditor.Settings;
 
@@ -33,6 +38,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor
                 .AddScoped<INavigationProvider, AdminMenu>()
                 .AddScoped<IContentPartFieldDefinitionDisplayDriver, HtmlFieldCKEditorClassicSettingsDriver>()
                 .AddScoped<IContentTypePartDefinitionDisplayDriver, HtmlBodyPartCKEditorClassicSettingsDriver>()
+                .AddRecipeExecutionStep<CKEditorConfigurationsStep>()
                 .Configure<CKEditorOptions>(o =>
                 {
                     o.DefaultConfiguration = 
@@ -85,6 +91,17 @@ namespace ThisNetWorks.OrchardCore.CKEditor
                 pattern: _adminOptions.AdminUrlPrefix + "/CKEditor/Edit/{name}",
                 defaults: new { controller = adminControllerName, action = nameof(AdminController.Edit) }
             );
+        }        
+    }
+
+    [RequireFeatures("OrchardCore.Deployment")]
+    public class DeploymentStartup : StartupBase
+    {
+        public override void ConfigureServices(IServiceCollection services)
+        {  
+            services.AddTransient<IDeploymentSource, AllCKEditorConfigurationsDeploymentSource>()
+                .AddSingleton<IDeploymentStepFactory>(new DeploymentStepFactory<AllCKEditorConfigurationsDeploymentStep>())
+                .AddScoped<IDisplayDriver<DeploymentStep>, AllCKEditorConfigurationsDeploymentStepDriver>();           
         }        
     }
 }
