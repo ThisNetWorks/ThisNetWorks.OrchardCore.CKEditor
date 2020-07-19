@@ -1,0 +1,47 @@
+@model HtmlBodyPartViewModel
+@inject ThisNetWorks.OrchardCore.CKEditor.Services.CKEditorConfigurationManager Manager
+
+@{
+    var settings = Model.TypePartDefinition.GetSettings<HtmlBodyPartSettings>();
+    var ckeditorSettings = Model.TypePartDefinition.GetSettings<HtmlBodyPartCKEditorClassicSettings>();
+    string configuration = String.Empty;
+    if (!String.IsNullOrEmpty(ckeditorSettings.ConfigurationName))
+    {
+        var document = await Manager.GetDocumentAsync();
+        if(document.Configurations.TryGetValue(ckeditorSettings.ConfigurationName, out var ckEditorConfiguration))
+        {
+            configuration = ckEditorConfiguration.Configuration;
+        }
+
+    }        
+    var culture = await Orchard.GetContentCultureAsync(Model.ContentItem);
+}
+
+@* To override this with a custom build register a IResourceManifestProvider with the name CKEditor and include it in your pipeline first? or last?*@
+<script asp-name="CKEditorClassic" asp-src="~/ThisNetWorks.OrchardCore.CKEditor/scripts/ckeditor-classic-orchardcore/ckeditor.js" at="Foot" depends-on="admin"></script>
+
+<div class="form-group">
+    <label asp-for="Html">@Model.TypePartDefinition.DisplayName()</label>
+    <textarea asp-for="Html" rows="5" class="form-control content-preview-text d-none" dir="@culture.GetLanguageDirection()"></textarea>
+    <span class="hint">@T["The body of the content item."]</span>
+</div>
+
+<script at="Foot" type="text/javascript">
+    var optionsTextArea = document.getElementById('@Html.IdFor(x => x.Html)');
+    @* When part rendered by a flow part only the elements scripts are rendered, so the html element will not exist. *@
+    if (optionsTextArea) {
+        ClassicEditor
+            .create(optionsTextArea, @Html.Raw(configuration))
+            .then(editor => {
+                editor.model.document.on( 'change:data', () => {
+                    @* Update the text area source element. *@
+                    editor.updateSourceElement();
+                    @* Then trigger render. *@
+                    $(document).trigger('contentpreview:render');
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+</script>

@@ -1,0 +1,56 @@
+@model CKEditorConfigurationIndexViewModel
+
+<h1>@RenderTitleSegments(T["CKEditor Configurations"])</h1>
+
+<form asp-action="Index"> @* the form is necessary to generate an antiforgery token for the delete action *@
+    <input type="submit" name="submit.Filter" id="submitFilter" class="d-none" />
+    <div class="row">
+        <div class="form-group col-xl-4 col-sm-6">
+            <div class="input-group input-group-sm filter-options">
+                <input asp-for="Options.Search" class="form-control" placeholder="@T["Search"]" type="search" autofocus="autofocus" />
+            </div>
+        </div>
+        <div class="form-group col-xl-8 col-sm-6">
+            <div class="btn-group float-right">
+                <a asp-route-action="Create" class="btn btn-primary float-right" role="button">@T["Add Configuration"]</a>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Configurations.Any())
+    {
+        <ul class="list-group">
+            @foreach (var configuration in Model.Configurations.Select(t => t.Configuration))
+            {
+                <li class="list-group-item">
+                    <div class="properties">
+                        <div class="related">
+                            <a asp-action="Edit" asp-route-name="@configuration.Name" class="btn btn-primary btn-sm">@T["Edit"]</a>
+                                <a asp-action="Delete"
+                                   asp-route-name="@configuration.Name"
+                                   class="btn btn-danger btn-sm" itemprop="RemoveUrl UnsafeUrl">@T["Delete"]</a>
+                        </div>
+                        <span class="text-primary" title="@T["Configuration"]"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                        <span class="text-primary"><a asp-action="Edit" asp-route-name="@configuration.Name">@configuration.Name</a></span>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            @T["<strong>Nothing here!</strong> There are no CKEditor Configurations for the moment."]
+        </div>
+    }
+</form>
+
+@await DisplayAsync(Model.Pager)
+
+<script at="Foot" type="text/javascript">
+    $(function () {
+        $(".filter-options input").on("change", function () {
+            $("[name='submit.Filter']").click();
+        });
+    });
+</script>

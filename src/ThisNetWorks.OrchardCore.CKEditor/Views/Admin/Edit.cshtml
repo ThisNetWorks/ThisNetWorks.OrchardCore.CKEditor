@@ -1,0 +1,70 @@
+@model CKEditorConfigurationViewModel
+@inject IOptions<CKEditorOptions> CKEditorOptions
+@{
+    var json = JToken.Parse(CKEditorOptions.Value.DefaultConfiguration);
+}
+<style asp-name="codemirror"></style>
+<script asp-name="codemirror" depends-on="admin" at="Foot"></script>
+<script asp-name="codemirror-addon-display-autorefresh" at="Foot"></script>
+@* TODO these are not in rc2 *@
+@* <script asp-name="codemirror-addon-edit-closetag" at="Foot"></script> *@
+@* <script asp-name="codemirror-addon-selection-active-line" at="Foot"></script> *@
+<script asp-name="codemirror-mode-css" at="Foot"></script>
+<script asp-name="codemirror-mode-htmlmixed" at="Foot"></script>
+<script asp-name="codemirror-mode-javascript" at="Foot"></script>
+<script asp-name="codemirror-mode-xml" at="Foot"></script>
+
+<h1>@RenderTitleSegments(T["Edit CKEditor Configuration"])</h1>
+
+<div asp-validation-summary="All"></div>
+<form asp-action="Edit" method="post">
+
+    <div class="form-group" asp-validation-class-for="Name">
+        <label asp-for="Name">@T["Name"]</label>
+        <input asp-for="Name" class="form-control" readonly/>
+        <span class="hint">@T["The name of this configuration."]</span>
+    </div>
+
+    <div class="form-group" asp-validation-class-for="Configuration">
+        <label asp-for="Configuration">@T["Configuration"]</label>
+        <textarea asp-for="Configuration" rows="10" class="form-control"></textarea>
+        <span class="hint">@T["The CKEditor configuration."]</span>
+        <div id="default-configuration" class="d-none" data-configuration='@Html.Raw(json.ToString())'></div>
+    </div>
+
+    <fieldset>
+        <div class="form-group d-flex justify-content-between">
+            <div >
+                <button class="btn btn-primary" type="submit">@T["Save"]</button>
+                <a class="btn btn-secondary" asp-route-action="Index">@T["Cancel"]</a>
+            </div>
+            <div>
+                <button id="use-default-configuration" class="btn btn-success">@T["Set to default"]</button>
+            </div>
+        </div>
+    </fieldset>
+    
+</form>
+
+<script at="Foot">
+    $(function () {
+        var configurationTextArea = document.getElementById('@Html.IdFor(x => x.Configuration)');
+        if (configurationTextArea) {
+            var editor = CodeMirror.fromTextArea(configurationTextArea, {
+                autoCloseTags: true,
+                autoRefresh: true,
+                lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: true,
+                styleActiveLine: true,
+                mode: { name: "javascript" }
+            });
+            $('#use-default-configuration').on('click', function (e) {
+                e.preventDefault();
+                var json = JSON.parse(document.getElementById('default-configuration').dataset.configuration);
+                var jsonStr = JSON.stringify(json, null, 2);
+                editor.getDoc().setValue(jsonStr);
+            }); 
+        }
+    });
+</script>
