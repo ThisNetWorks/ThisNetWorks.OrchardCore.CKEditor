@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OrchardCore.Logging;
 
-namespace ThisNetWorks.OrchardCore.CKEditor.Sample
+namespace ThisNetWorks.OrchardCore.CKEditor.Sample.Web
 {
     public class Program
     {

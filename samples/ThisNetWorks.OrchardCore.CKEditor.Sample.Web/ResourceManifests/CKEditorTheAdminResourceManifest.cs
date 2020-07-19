@@ -1,6 +1,6 @@
 using OrchardCore.ResourceManagement;
 
-namespace ThisNetWorks.OrchardCore.CKEditor.Sample.ResourceManifests
+namespace ThisNetWorks.OrchardCore.CKEditor.Sample.Web.ResourceManifests
 {
     /// <summary>
     /// This is an example of how to override the admin css

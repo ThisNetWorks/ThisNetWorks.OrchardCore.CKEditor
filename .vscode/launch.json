@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/samples/ThisNetWorks.OrchardCore.CKEditor.Sample/bin/Debug/netcoreapp3.1/ThisNetWorks.OrchardCore.CKEditor.Sample.dll",
+            "program": "${workspaceFolder}/samples/ThisNetWorks.OrchardCore.CKEditor.Sample.Web/bin/Debug/netcoreapp3.1/ThisNetWorks.OrchardCore.CKEditor.Sample.Web.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/samples/ThisNetWorks.OrchardCore.CKEditor.Sample",
+            "cwd": "${workspaceFolder}/samples/ThisNetWorks.OrchardCore.CKEditor.Sample.Web",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

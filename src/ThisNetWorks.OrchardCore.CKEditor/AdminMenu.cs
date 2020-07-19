@@ -23,7 +23,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor
 
             builder
                 .Add(S["Configuration"], design => design
-                    .Add(S["CKEditor"], "CKEditor", import => import
+                    .Add(S["CKEditor Configurations"], "CKEditor Configurations", import => import
                         .Action("Index", "Admin", new { area = "ThisNetWorks.OrchardCore.CKEditor" })
                         .Permission(Permissions.ManageCKEditorConfigurations)
                         .LocalNav()

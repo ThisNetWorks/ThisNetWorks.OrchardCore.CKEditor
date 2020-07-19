@@ -1,6 +1,6 @@
 using OrchardCore.ResourceManagement;
 
-namespace ThisNetWorks.OrchardCore.CKEditor.Sample.ResourceManifests
+namespace ThisNetWorks.OrchardCore.CKEditor.Sample.web.ResourceManifests
 {
     /// <summary>
     /// This is an example of how to override the <script asp-name="ckeditorclassic"> tag helper

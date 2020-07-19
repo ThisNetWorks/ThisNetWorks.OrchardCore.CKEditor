@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThisNetWorks.OrchardCore.CK
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{623BC4F2-30B6-46D3-8A2C-8CF0444B89E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThisNetWorks.OrchardCore.CKEditor.Sample", "samples\ThisNetWorks.OrchardCore.CKEditor.Sample\ThisNetWorks.OrchardCore.CKEditor.Sample.csproj", "{131ED0ED-2DA7-4095-8A0A-ED3FF0246C6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThisNetWorks.OrchardCore.CKEditor.Sample.Web", "samples\ThisNetWorks.OrchardCore.CKEditor.Sample.Web\ThisNetWorks.OrchardCore.CKEditor.Sample.Web.csproj", "{131ED0ED-2DA7-4095-8A0A-ED3FF0246C6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

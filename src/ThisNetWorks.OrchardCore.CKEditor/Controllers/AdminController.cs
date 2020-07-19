@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.Environment.Shell;
+using OrchardCore.Mvc.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Routing;
 using OrchardCore.Settings;
@@ -118,7 +119,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Name), S["The name is mandatory."]);
                 }
-                if (!IsJsonOrWhitespace(model.Configuration))
+                if (String.IsNullOrWhiteSpace(model.Configuration) || !model.Configuration.IsJson())
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Configuration), S["Invalid JSON configuration."]);
                 }                
@@ -188,7 +189,7 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Name), S["The name is mandatory."]);
                 }
-                if (!IsJsonOrWhitespace(model.Configuration))
+                if (String.IsNullOrWhiteSpace(model.Configuration) || !model.Configuration.IsJson())
                 {
                     ModelState.AddModelError(nameof(CKEditorConfigurationViewModel.Configuration), S["Invalid JSON configuration."]);
                 }                  
@@ -229,24 +230,6 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Controllers
             await _ckEditorConfigurationManager.RemoveAsync(name);
 
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool IsJsonOrWhitespace(string json)
-        { 
-            if (String.IsNullOrWhiteSpace(json))
-            {
-                return true;
-            }
-
-            try
-            {
-                JToken.Parse(json);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private string FormatJson(string json)

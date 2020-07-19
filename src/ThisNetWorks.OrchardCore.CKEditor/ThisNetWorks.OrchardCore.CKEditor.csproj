@@ -24,6 +24,7 @@
     <PackageReference Include="OrchardCore.Module.Targets"/>
     <PackageReference Include="OrchardCore.Navigation.Core"/>
     <PackageReference Include="OrchardCore.Recipes.Abstractions" />
+    <PackageReference Include="OrchardCore.ResourceManagement" />
   </ItemGroup>
 
 </Project>

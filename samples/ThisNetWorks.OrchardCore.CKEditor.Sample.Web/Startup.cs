@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OrchardCore.ResourceManagement;
-using ThisNetWorks.OrchardCore.CKEditor.Sample.ResourceManifests;
+using ThisNetWorks.OrchardCore.CKEditor.Sample.Web.ResourceManifests;
 
-namespace ThisNetWorks.OrchardCore.CKEditor.Sample
+namespace ThisNetWorks.OrchardCore.CKEditor.Sample.Web
 {
     public class Startup
     {

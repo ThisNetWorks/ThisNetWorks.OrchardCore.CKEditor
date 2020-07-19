@@ -1,21 +1,16 @@
 <Project>
 
   <ItemGroup>
-    <PackageReference Update="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.ContentFields" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0-rc2-13450"/>
-    <PackageReference Update="OrchardCore.Deployment.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Html" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Navigation.Core" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Recipes.Abstractions" Version="1.0.0-rc2-13450" />
-
-    <PackageReference Update="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.ContentManagement.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Logging.NLog" Version="1.0.0-rc2-13450" />
-    
-    <PackageReference Update="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13450" />
-    <PackageReference Update="OrchardCore.Theme.Targets" Version="1.0.0-rc2-13450" />
+    <PackageReference Update="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.ContentFields" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0-rc2-13884"/>
+    <PackageReference Update="OrchardCore.Deployment.Abstractions" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Html" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Logging.NLog" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Module.Targets" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Navigation.Core" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.Recipes.Abstractions" Version="1.0.0-rc2-13884" />
+    <PackageReference Update="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13884" />
   </ItemGroup>
 </Project>  

@@ -1,0 +1,178 @@
+{
+  "name": "CKEditorsample",
+  "displayName": "CKEditor Sample",
+  "description": "CKEditor Sample based on TheBlogTheme",
+  "author": "ThisNetWorks",
+  "website": "https://github.com/ThisNetWorks",
+  "version": "1",
+  "issetuprecipe": true,
+  "categories": [ "default" ],
+  "tags": [ "blog" ],  
+  "steps": [
+     {
+      "name": "Recipes",
+      "Values": [
+        {
+          "ExecutionId" : "",
+          "Name" : "Blog"
+        }
+      ]
+     },
+    {
+      "name": "Feature",
+      "enable": [
+        "ThisNetWorks.OrchardCore.CKEditor"
+      ],
+      "disable": [
+      ]
+    },
+    {
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Display",
+        "Controller": "Item",
+        "Area": "OrchardCore.Contents",
+        "ContentItemId": "40ysnfhzjfhynzgk02sm6n04wx"
+      }
+    }, 
+    {
+      "name": "CKEditorConfigurations",
+      "CKEditorConfigurations": {
+        "Default": {
+          "Name": "Default",
+          "Configuration": "{\r\n toolbar:[\r\n\t\t\t'heading',\r\n\t\t\t'|',\r\n\t\t\t'bold',\r\n\t\t\t'italic',\r\n\t\t\t'link',\r\n\t\t\t'bulletedList',\r\n\t\t\t'numberedList',\r\n\t\t\t'|',\r\n\t\t\t'indent',\r\n\t\t\t'outdent',\r\n\t\t\t'|',\r\n\t\t\t'insertImage',\r\n\t\t\t'blockQuote',\r\n\t\t\t'insertTable',\r\n\t\t\t'undo',\r\n\t\t\t'redo'\r\n\t\t]\r\n}"
+        },
+        "Heading": {
+          "Name": "Heading",
+          "Configuration": "{\n  \"toolbar\": [\n    \"heading\",\n    \"|\",\n    \"bold\",\n    \"italic\",\n    \"blockQuote\"\n  ],\n  \"heading\": {\n    \"options\": [\n      {\n        \"model\": \"paragraph\",\n        \"title\": \"Paragraph Black\",\n        \"class\": \"ck-heading_paragraph\"\n      },\n      {\n        \"model\": \"paragraphPrimary\",\n        \"view\": {\n          \"name\": \"p\",\n          \"classes\": \"text-primary\"\n        },\n        \"title\": \"Paragraph Primary\",\n        \"class\": \"ck-heading_paragraph_primary\",\n        \"converterPriority\": \"high\"\n      },\n      {\n        \"model\": \"paragraphSecondary\",\n        \"view\": {\n          \"name\": \"p\",\n          \"classes\": \"text-secondary\"\n        },\n        \"title\": \"Paragraph Secondary\",\n        \"class\": \"ck-heading_paragraph_secondary\",\n        \"converterPriority\": \"high\"\n      },\n      {\n        \"model\": \"heading1\",\n        \"view\": \"h1\",\n        \"title\": \"Heading 1\",\n        \"class\": \"ck-heading_heading1\"\n      },\n      {\n        \"model\": \"heading2\",\n        \"view\": \"h2\",\n        \"title\": \"Heading 2 Black\",\n        \"class\": \"ck-heading_heading2\"\n      },\n      {\n        \"model\": \"headingPrimary\",\n        \"view\": {\n          \"name\": \"h2\",\n          \"classes\": \"text-primary\"\n        },\n        \"title\": \"Heading 2 Primary\",\n        \"class\": \"ck-heading_heading2_primary\",\n        \"converterPriority\": \"high\"\n      },\n      {\n        \"model\": \"headingSecondary\",\n        \"view\": {\n          \"name\": \"h2\",\n          \"classes\": \"text-secondary\"\n        },\n        \"title\": \"Heading 2 Secondary\",\n        \"class\": \"ck-heading_heading2_secondary\",\n        \"converterPriority\": \"high\"\n      }\n    ]\n  }\n}"
+        }
+      }
+    },       
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "CKEditorSample",
+          "DisplayName": "CKEditor Sample",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "CKEditorSample",
+              "Name": "CKEditorSample",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2",
+                  "Editor": "CKEditorClassic"
+                },
+                "HtmlBodyPartSettings": {},
+                "ContentIndexSettings": {},
+                "HtmlBodyPartCKEditorClassicSettings": {}
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "ContentIndexSettings": {
+                  "Included": false,
+                  "Stored": false,
+                  "Analyzed": false,
+                  "Sanitized": false,
+                  "Tokenized": false,
+                  "Template": null
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ Model.ContentItem | display_text | slugify }}",
+                  "ShowHomepageOption": true
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "CKEditorSample",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "HtmlField",
+              "Name": "CKEditorHtmlField",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "CKEditor Html Field",
+                  "Editor": "CKEditorClassic",
+                  "Position": "0"
+                },
+                "HtmlFieldSettings": {},
+                "ContentIndexSettings": {},
+                "HtmlFieldCKEditorClassicSettings": {
+                  "ConfigurationName": "Heading"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "content",
+      "data": [
+        {
+          "ContentItemId": "40ysnfhzjfhynzgk02sm6n04wx",
+          "ContentType": "CKEditorSample",
+          "DisplayText": "A sample using the default toolbar, or a custom toolbar with styling options",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "CKEditorSample": {
+            "CKEditorHtmlField": {
+              "Html": "<blockquote><h2 class=\"text-primary\">h2 primary block quote</h2></blockquote><h2 class=\"text-secondary\">h2 secondary</h2><p class=\"text-primary\">paragrahprimary</p><p class=\"text-secondary\">paragraph secondary</p>"
+            }
+          },
+          "HtmlBodyPart": {
+            "Html": "<p>A sample using the default toolbar, or a custom toolbar with styling options</p>"
+          },
+          "TitlePart": {
+            "Title": "A sample using the default toolbar, or a custom toolbar with styling options"
+          },
+          "AutoroutePart": {
+            "Path": "ckeditorsample"
+          }
+        }
+      ]
+    }        
+  ]
+}
