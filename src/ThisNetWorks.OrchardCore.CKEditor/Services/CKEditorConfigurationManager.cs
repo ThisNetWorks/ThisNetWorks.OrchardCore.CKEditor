@@ -46,15 +46,19 @@ namespace ThisNetWorks.OrchardCore.CKEditor.Services
             if (!_memoryCache.TryGetValue<CKEditorConfigurationDocument>(CacheKey, out var document))
             {
                 var changeToken = ChangeToken;
+                
+                bool cacheable;
+                (cacheable, document) = await _sessionHelper.GetForCachingAsync<CKEditorConfigurationDocument>();
 
-                document = await _sessionHelper.GetForCachingAsync<CKEditorConfigurationDocument>();
-
-                foreach (var configuration in document.Configurations.Values)
+                if (cacheable)
                 {
-                    configuration.IsReadonly = true;
-                }
+                    foreach (var configuration in document.Configurations.Values)
+                    {
+                        configuration.IsReadonly = true;
+                    }
 
-                _memoryCache.Set(CacheKey, document, changeToken);
+                    _memoryCache.Set(CacheKey, document, changeToken);
+                }
             }
 
             return document;
