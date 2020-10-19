@@ -23,6 +23,8 @@
 @* To override this with a custom build register a IResourceManifestProvider with the name ckeditorclassic and include it in your pipeline first? or last?*@
 <script asp-name="CKEditorClassic" asp-src="~/ThisNetWorks.OrchardCore.CKEditor/scripts/ckeditor-classic-orchardcore/ckeditor.js" at="Foot" depends-on="admin"></script>
 
+@await DisplayAsync(await New.ShortcodeModal())
+
 <div class="form-group">
     <label asp-for="Html">@Model.PartFieldDefinition.DisplayName()</label>
     @if (culture.IsRightToLeft())

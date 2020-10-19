@@ -4,6 +4,7 @@
     <PackageTags>ckeditor;ckeditor5;orchardcore;</PackageTags>
     <VersionPrefix>1.0.0</VersionPrefix>
     <VersionSuffix>beta</VersionSuffix>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <!-- Called after so that the <VersionSuffix> is built after the local ones -->

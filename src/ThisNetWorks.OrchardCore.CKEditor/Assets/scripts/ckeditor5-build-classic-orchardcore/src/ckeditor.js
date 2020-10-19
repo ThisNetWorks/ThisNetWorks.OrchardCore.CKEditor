@@ -26,6 +26,9 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 // The Orchard Core media / asset plugin to include.
 import InsertAsset from '../../ckeditor5-orchardcore-media/src/orchardcore-media';
 
+// The Orchard Core shortcode plugin to include.
+import InsertShortcode from '../../ckeditor5-orchardcore-shortcodes/src/orchardcore-shortcodes';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -45,7 +48,8 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	InsertAsset
+	InsertAsset,
+	InsertShortcode
 ];
 
 // Editor configuration.
@@ -63,6 +67,7 @@ ClassicEditor.defaultConfig = {
 			'indent',
 			'outdent',
 			'|',
+			'insertShortcode',
 			'insertImage',
 			'blockQuote',
 			'insertTable',

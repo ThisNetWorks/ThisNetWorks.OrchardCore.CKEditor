@@ -39,10 +39,10 @@ For further customization of builds, alternate editors, etc, please refer to the
 Currently built against 
 
 - Orchard Core Version `1.0.0-rc2-14911`
-- CKEditor Classic Build Version `20.0.0`
+- CKEditor Classic Build Version `23.0.0`
 
 ## License
 
-[ThisNetworks.OrchardCore.CKEditor](https://github.com/ThisNetWorks/ThisNetWorks.OrchardCore.CKEditor/blob/master/LICENSE) licensed under the terms of the BSD-3-Clause Licencse.
+[ThisNetworks.OrchardCore.CKEditor](https://github.com/ThisNetWorks/ThisNetWorks.OrchardCore.CKEditor/blob/master/LICENSE) licensed under the terms of the BSD-3-Clause License.
 
 [CKEditor5 Classic Build](https://github.com/ckeditor/ckeditor5/blob/master/LICENSE.md) redistributed under the the terms of GNU General Public License Version 2 or later. For full details about the license, please check the LICENSE.md file or https://ckeditor.com/legal/ckeditor-oss-license.
