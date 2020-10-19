@@ -39,7 +39,7 @@ For further customization of builds, alternate editors, etc, please refer to the
 Currently built against 
 
 - Orchard Core Version `1.0.0-rc2-14911`
-- CKEditor Classic Build Version `20.0.0`
+- CKEditor Classic Build Version `23.0.0`
 
 ## License
 
