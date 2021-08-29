@@ -4,7 +4,7 @@ using OrchardCore.Modules.Manifest;
     Name = "ThisNetWorks OrchardCore CKEditor",
     Author = "ThisNetWorks",
     Website = "https://github.com/thisnetworks",
-    Version = "1.0.0",
+    Version = "1.1.0",
     Description = "ThisNetWorks CKEditor editors and media plugins",
     Dependencies = new[] 
     { 
