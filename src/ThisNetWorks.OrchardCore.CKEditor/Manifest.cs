@@ -4,8 +4,12 @@ using OrchardCore.Modules.Manifest;
     Name = "ThisNetWorks OrchardCore CKEditor",
     Author = "ThisNetWorks",
     Website = "https://github.com/thisnetworks",
-    Version = "0.0.1",
+    Version = "1.0.0",
     Description = "ThisNetWorks CKEditor editors and media plugins",
-    Dependencies = new[] { "OrchardCore.ContentFields", "OrchardCore.Html" },
+    Dependencies = new[] 
+    { 
+        "OrchardCore.ContentFields", 
+        "OrchardCore.Html"
+    },
     Category = "Content Management"
 )]

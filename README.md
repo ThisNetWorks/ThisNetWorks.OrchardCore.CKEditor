@@ -36,10 +36,14 @@ For further customization of builds, alternate editors, etc, please refer to the
 
 ## Versions
 
-Currently built against 
+Version tags and pre release suffixes are based of the version of Orchard Core referenced.
 
-- Orchard Core Version `1.0.0-rc2-15621`
-- CKEditor Classic Build Version `23.0.0`
+For version 1.0 of Orchard Core use `1.0.0`, which will use the [Orchard Core NuGet Feed](https://www.nuget.org/packages/OrchardCore/).
+
+Prerelease versions are suffixed with the CloudSmith build of Orchard Core referenced, 
+and will required a configured CloudSmith NuGet feed. Refer [Configuring a preview package source](https://docs.orchardcore.net/en/latest/docs/getting-started/preview-package-source/)
+
+e.g. `1.1.0-preview-16439` refers to the CloudSmith Orchard Core prerelease build `v1.1.0-preview-16439`
 
 ## License
 

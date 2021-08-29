@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageTags>ckeditor;ckeditor5;orchardcore;</PackageTags>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>beta</VersionSuffix>
+    <VersionSuffix>preview</VersionSuffix>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
