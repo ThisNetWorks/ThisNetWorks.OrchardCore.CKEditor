@@ -1,17 +1,18 @@
 <Project>
 
   <ItemGroup>
-    <PackageReference Update="OrchardCore.Admin.Abstractions" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Application.Cms.Targets" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.ContentFields" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.ContentLocalization.Abstractions" Version="1.2.2"/>
-    <PackageReference Update="OrchardCore.Data.Abstractions" Version="1.2.2"/>
-    <PackageReference Update="OrchardCore.Deployment.Abstractions" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Html" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Logging.NLog" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Module.Targets" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Navigation.Core" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.Recipes.Abstractions" Version="1.2.2" />
-    <PackageReference Update="OrchardCore.ResourceManagement" Version="1.2.2" />
+    <PackageReference Update="OrchardCore.Admin.Abstractions" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Application.Cms.Targets" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.ContentFields" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.ContentLocalization.Abstractions" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Data.Abstractions" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Deployment.Abstractions" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Html" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Logging.NLog" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Module.Targets" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Navigation.Core" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.Recipes.Abstractions" Version="1.3.0-preview-16693" />
+    <PackageReference Update="OrchardCore.ResourceManagement" Version="1.3.0-preview-16693" />
   </ItemGroup>
+
 </Project>  
